@@ -3,6 +3,10 @@
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
+<<<<<<< HEAD
     ],
     "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx4G -Xms100m -Xlog:disable"
+=======
+    ]
+>>>>>>> 47d4616c306c7c4518270ead6f3070163bff0286
 }
