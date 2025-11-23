@@ -6,7 +6,7 @@ public class Ray3 {
     Vector3 origin;
     Vector3 direction;
 
-    Ray3(Vector3 origin, Vector3 direction) {
+    public Ray3(Vector3 origin, Vector3 direction) {
         this.origin = origin;
         this.direction = direction;
     }
