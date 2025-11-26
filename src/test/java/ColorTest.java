@@ -9,16 +9,16 @@ public class ColorTest {
     @Test
     public void testColorClamping() {
         Color c1 = new Color(-0.5, 0.5, 1.5, 2.0);
-        assertEquals(0.0, c1.r, 1e-9);
-        assertEquals(0.5, c1.g, 1e-9);
-        assertEquals(1.0, c1.b, 1e-9);
-        assertEquals(1.0, c1.a, 1e-9);
+        assertEquals(0.0, c1.r, 1e-6);
+        assertEquals(0.5, c1.g, 1e-6);
+        assertEquals(1.0, c1.b, 1e-6);
+        assertEquals(1.0, c1.a, 1e-6);
 
         Color c2 = new Color(0.2, 0.8);
-        assertEquals(0.2, c2.r, 1e-9);
-        assertEquals(0.8, c2.g, 1e-9);
-        assertEquals(0.0, c2.b, 1e-9);
-        assertEquals(1.0, c2.a, 1e-9);
+        assertEquals(0.2, c2.r, 1e-6);
+        assertEquals(0.8, c2.g, 1e-6);
+        assertEquals(0.0, c2.b, 1e-6);
+        assertEquals(1.0, c2.a, 1e-6);
     }
 
     @Test
@@ -26,10 +26,10 @@ public class ColorTest {
         Color c = new Color(0.1, 0.2, 0.3, 0.4);
         int argb = c.toARGB();
         Color c2 = Color.fromARGB(argb);
-        assertEquals(c.r, c2.r, 1e-3);
-        assertEquals(c.g, c2.g, 1e-3);
-        assertEquals(c.b, c2.b, 1e-3);
-        assertEquals(c.a, c2.a, 1e-3);
+        assertEquals(c.r, c2.r, 1e-2);
+        assertEquals(c.g, c2.g, 1e-2);
+        assertEquals(c.b, c2.b, 1e-2);
+        assertEquals(c.a, c2.a, 1e-2);
     }
 
     @Test

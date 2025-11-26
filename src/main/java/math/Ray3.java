@@ -2,6 +2,9 @@ package main.java.math;
 
 import java.util.List;
 
+import main.java.logic.Intersection;
+import main.java.logic.Intersections;
+
 public class Ray3 {
     Vector3 origin;
     Vector3 direction;
@@ -23,22 +26,43 @@ public class Ray3 {
         return origin.add(direction.scale(t));
     }
 
-    public List<Vector3> intersectSphere(Sphere3 sphere) {
+    public Intersections intersectSphere(Sphere3 sphere) {
         Vector3 L = sphere.getCenter().subtract(origin);
         double tca = L.dot(direction);
         double d2 = L.dot(L) - tca * tca;
         double radius2 = sphere.getRadius() * sphere.getRadius();
         if (d2 > radius2) {
-            return List.of(); // No intersection
+            return new Intersections(
+                new Intersection(Double.NaN), 
+                new Intersection(Double.NaN)
+            ); // No intersection
         }
         double thc = Math.sqrt(radius2 - d2);
         double t0 = tca - thc;
         double t1 = tca + thc;
 
         if (t0 < 0 && t1 < 0) {
-            return List.of(); // Both intersections are behind the ray
+            return new Intersections(
+                new Intersection(Double.NaN), 
+                new Intersection(Double.NaN)
+            );  // Both intersections are behind the ray
         }
 
-        return List.of(getPoint(t0), getPoint(t1)); // Two intersections
+        return new Intersections(
+            new Intersection(t0), 
+            new Intersection(t1)
+        );
+    }
+
+    public Ray3 transform(Matrix4 matrix) {
+        Vector3 newOrigin = matrix.transformPoint(origin);
+        Vector3 newDirection = matrix.transformDirection(direction).normalize();
+        return new Ray3(newOrigin, newDirection);
+    }
+
+    public Ray3 scale(double scalar) {
+        Vector3 newOrigin = origin.scale(scalar);
+        Vector3 newDirection = direction; // Direction remains unchanged
+        return new Ray3(newOrigin, newDirection);
     }
 }
