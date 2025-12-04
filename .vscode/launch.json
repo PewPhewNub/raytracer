@@ -4,16 +4,9 @@
             "type": "java",
             "name": "RayTracerApp",
             "request": "launch",
-            "mainClass": "main.java.renderer.RayTracerApp",
+            "mainClass": "main.java.app.RayTracerApp",
+            "vmArgs": "--module-path \"lib/javafx-sdk-21.0.8/lib\" --add-modules javafx.controls,javafx.fxml -Dprism.forceGPU=false -Dprism.order=sw -Dprism.verbose=true -Djavafx.animation.fullspeed=true",
             "projectName": "RayTracer_b4903065"
-        },
-        {
-            "type": "java",
-            "name": "JavaFXScreen$Launcher",
-            "request": "launch",
-            "mainClass": "renderer.JavaFXScreen$Launcher",
-            "vmArgs": "--module-path ./lib/javafx-sdk-21.0.8/lib --add-modules javafx.controls,javafx.fxml",
-            "console": "integratedTerminal"
         }
     ]
 }
