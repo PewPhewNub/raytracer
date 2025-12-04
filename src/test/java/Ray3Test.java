@@ -6,12 +6,12 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import main.java.math.Sphere3;
-import main.java.logic.Intersection;
-import main.java.logic.Intersections;
-import main.java.math.Matrix4;
-import main.java.math.Ray3;
-import main.java.math.Vector3;
+import main.java.core.Intersection;
+import main.java.core.Intersections;
+import main.java.core.Matrix4;
+import main.java.core.Ray3;
+import main.java.core.Vector3;
+import main.java.world.Sphere3;
 
 public class Ray3Test {
     @Test
@@ -65,5 +65,20 @@ public class Ray3Test {
     public void testTransformIntersections(){
         Ray3 ray = new Ray3(new Vector3(0, 0, -5), new Vector3(0, 0, 1));
         Sphere3 sphere = new Sphere3(new Vector3(0, 0, 0), 1);
+    }
+
+    @Test
+    public void testRayReflection(){
+        Ray3 ray = new Ray3(new Vector3(0, -1, 0), new Vector3(1, -1, 0).normalize());
+        Vector3 normal = new Vector3(0, 1, 0);
+        Ray3 reflectedRay = ray.reflect(normal);
+
+        assertEquals(new Vector3(0, -1, 0), reflectedRay.getOrigin());
+        assertEquals(new Vector3(1, 1, 0).normalize(), reflectedRay.getDirection());
+
+        Vector3 normal2 = new Vector3(Math.sqrt(2)/2, Math.sqrt(2)/2, 0);
+        Ray3 reflectedRay2 = ray.reflect(normal2);
+        assertEquals(new Vector3(0, -1, 0), reflectedRay2.getOrigin());
+        assertEquals(new Vector3(1, 0, 0), reflectedRay2.getDirection());
     }
 }

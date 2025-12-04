@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "RayTracerApp",
+            "request": "launch",
+            "mainClass": "main.java.renderer.RayTracerApp",
+            "projectName": "RayTracer_b4903065"
+        },
+        {
+            "type": "java",
             "name": "JavaFXScreen$Launcher",
             "request": "launch",
             "mainClass": "renderer.JavaFXScreen$Launcher",

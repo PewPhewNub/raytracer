@@ -1,8 +1,9 @@
 package test.java;
 
-import main.java.math.Color;
-
 import org.junit.jupiter.api.*;
+
+import main.java.core.Color;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ColorTest {

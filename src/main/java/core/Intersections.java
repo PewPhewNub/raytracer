@@ -1,4 +1,4 @@
-package main.java.logic;
+package main.java.core;
 
 import java.util.Arrays;
 import java.util.Comparator;

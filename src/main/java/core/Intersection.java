@@ -1,4 +1,4 @@
-package main.java.logic;
+package main.java.core;
 
 public class Intersection {
     public final double t;

@@ -1,8 +1,10 @@
 package test.java;
 
 import org.junit.jupiter.api.*;
+
+import main.java.core.Vector3;
+
 import static org.junit.jupiter.api.Assertions.*;
-import main.java.math.Vector3;
 public class Vector3Test {
     @Test
     public void VectorOperations(){

@@ -1,6 +1,6 @@
-package main.java.renderer;
+package main.java.app;
 
-import main.java.math.Color;
+import main.java.core.Color;
 
 public interface Screen {
     int getWidth();

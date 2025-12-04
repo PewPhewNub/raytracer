@@ -1,4 +1,4 @@
-package main.java.math;
+package main.java.core;
 
 public class Color {
     public final double r;

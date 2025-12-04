@@ -1,9 +1,8 @@
-package main.java.math;
+package main.java.core;
 
 import java.util.List;
 
-import main.java.logic.Intersection;
-import main.java.logic.Intersections;
+import main.java.world.Sphere3;
 
 public class Ray3 {
     Vector3 origin;
@@ -64,5 +63,10 @@ public class Ray3 {
         Vector3 newOrigin = origin.scale(scalar);
         Vector3 newDirection = direction; // Direction remains unchanged
         return new Ray3(newOrigin, newDirection);
+    }
+
+    public Ray3 reflect(Vector3 normal) {
+        Vector3 reflectedDirection = direction.subtract(normal.scale(2 * direction.dot(normal))).normalize();
+        return new Ray3(origin, reflectedDirection);
     }
 }
